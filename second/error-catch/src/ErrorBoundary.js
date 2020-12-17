@@ -1,4 +1,3 @@
-import { withSentryRouting } from '@sentry/react';
 import * as Sentry from "@sentry/react";
 import React, {
     Component
