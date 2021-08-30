@@ -13,6 +13,8 @@ class Store {
   }
 
   search(keyword){
+    this.addHistory(keyword);
+    
     return this.storage.productData
       .filter(product => product.name.includes(keyword));
   }
