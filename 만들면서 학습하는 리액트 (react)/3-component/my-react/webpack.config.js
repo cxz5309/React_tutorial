@@ -8,12 +8,12 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 
-const mode = process.env.NODE_ENV || "development";
+const mode = "production" || "development";
 
 module.exports = {
   mode,
   entry: {
-    main: "./src/app.js"
+    main: "./src/main.js"
   },
   output: {
     filename: "[name].js",
@@ -52,6 +52,11 @@ module.exports = {
       },
       {
         test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "babel-loader" // 바벨 로더를 추가한다
+      },
+      {
+        test: /\.jsx$/,
         exclude: /node_modules/,
         loader: "babel-loader" // 바벨 로더를 추가한다
       }
